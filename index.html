@@ -1,74 +1,208 @@
-<html lang="en"  class="dark" style="scroll-behavior: smooth;">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pritesh Bonde</title>
-    <link rel="icon" type="image/x-icon" href="./assets/head.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pritesh P. Bonde — Professional Development</title>
+  <meta name="description" content="Portfolio / Professional Development site for Pritesh P. Bonde — Senior Fullstack Engineer" />
+  <meta name="keywords" content="C#, .NET, ASP.NET Core, Angular, Ionic, TypeScript, Azure, EF Core, SQL Server, Fullstack, Web API, Hybrid apps, Microservices, REST, CI/CD" />
 
-    <link rel="stylesheet" href="public/styles.css">
+  <style>
+    :root{
+      --bg-dark:#0f1724;
+      --bg-light:#f6f8fb;
+      --card-dark:#0b1220cc;
+      --card-light:#ffffff;
+      --muted-dark:#9aa4b2;
+      --muted-light:#5b6b7a;
+      --accent:#4f46e5;
+      --accent-2:#06b6d4;
+      --radius:16px;
+      --max-width:1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      --enter-duration: 520ms;
+      --floating-size:160px;
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{color-scheme:dark}
+      body{background: linear-gradient(180deg,#071025 0%, #041021 60%); color:#e6eef8}
+      a{color:var(--accent)}
+      .card, .card-wide, aside.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+      .muted{color:var(--muted-dark)}
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{color-scheme:light}
+      body{background: linear-gradient(180deg,#f7fafc 0%, #eef2f7 60%); color:#0b1220}
+      a{color:var(--accent)}
+      .card, .card-wide, aside.card{background:var(--card-light);box-shadow:0 6px 18px rgba(15,23,36,0.06)}
+      .muted{color:var(--muted-light)}
+      .avatar{color:#0b1220}
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+
+    .container{max-width:var(--max-width);margin:48px auto;padding:32px;position:relative}
+
+    .floating-accent{position:absolute;right:24px;top:24px;width:var(--floating-size);height:var(--floating-size);border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));opacity:0.12;filter:blur(28px);animation:float 6s infinite ease-in-out}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    header.site-header{display:flex;gap:24px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:16px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--mono);font-size:26px;color:white}
+    h1{margin:0;font-size:24px}
+    .sub{color:var(--muted-dark);font-size:14px}
+
+    nav.top-nav{display:flex;gap:12px;align-items:center}
+    .btn{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,0.05);font-size:14px}
+
+    main.grid{display:grid;grid-template-columns:320px 1fr;gap:28px;margin-top:28px}
+
+    aside.card{border-radius:var(--radius);padding:20px}
+    .section-title{font-size:13px;color:var(--muted-dark);margin-bottom:12px}
+    .skill-badges{display:flex;flex-wrap:wrap;gap:8px}
+    .badge{background:rgba(0,0,0,0.05);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted-dark)}
+
+    section.content{display:flex;flex-direction:column;gap:18px}
+    .card-wide{border-radius:14px;padding:20px}
+
+    .summary p{margin:0;line-height:1.6}
+
+    .job{padding:14px;border-radius:12px;background:rgba(255,255,255,0.04);margin-bottom:12px}
+    .job h3{margin:0;font-size:16px}
+    .job .meta{color:var(--muted-dark);font-size:13px;margin-top:4px}
+    .job .desc{color:var(--muted-dark);font-size:14px;margin-top:8px}
+
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .project{padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.08)}
+    .project h4{margin:0 0 6px 0}
+    .project p{margin:0;font-size:14px}
+
+    footer.site-footer{margin-top:28px;font-size:13px;display:flex;justify-content:space-between;align-items:center;color:var(--muted-dark)}
+  </style>
 </head>
-<body class="bg-white dark:bg-gray-800">
-    <div class="md:col-span-1 md:flex md:justify-center text-white sticky top-0 z-50">
-        <!--Content wrapper-->
-        <nav class="text-right">
-          <div class="flex justify-between items-start">
-            <!-- <h1 class="font-bold uppercase p-4 border-b border-gray-100">
-              <a href="/" class="hover:text-gray-700">Pritesh Bonde</a>
-            </h1> -->
-            <div class="px-4 cursor-pointer md:hidden" id="burger">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </div>
-          </div>
-          <ul class="text-sm mt-6 flex justify-center" id="menu">
-            <li class="text-red-700 font-bold py-1">
-              <a href="#home" class="px-4 flex justify-end border-r-4 border-primary">
-                <span>Home</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </a>
-            </li>
-            <li class="py-1"> 
-              <a href="#about"  class="px-4 flex justify-end  border-r-4 border-white">
-                <span>About</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </a>
-            </li>
-            <li class="py-1">
-              <a href="#contact"  class="px-4 flex justify-end  border-r-4 border-white">
-                <span>Contact</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
+<body>
+  <div class="container">
+    <div class="floating-accent" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="brand">
+        <div class="avatar">PB</div>
+        <div>
+          <h1>Pritesh P. Bonde</h1>
+          <div class="sub">Senior Software Engineer — Fullstack</div>
+        </div>
       </div>
-      <!-- <main> -->
-        <header class="main inline-block align-middle" id="home">
-          <div class="inline-block align-middle">
-            <div class="typewriter">
-              <h1>I am Pritesh Bonde.</h1>
-            </div>
-            <h3>
-              Pune based <span class="text-white">Full Stack Developer</span>.
-            </h3>
+
+      <nav class="top-nav">
+        <a class="btn" href="#professional-development">Professional Development</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#skills">Skills</a>
+        <div class="social" style="margin-left:12px">
+          <a href="https://www.linkedin.com/in/priteshbonde/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/priteshbonde" target="_blank">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <aside class="card">
+        <div class="section">
+          <div class="section-title">Professional Summary</div>
+          <div class="summary">
+            <p><strong>Fullstack engineer with 11+ years of hands-on experience</strong> delivering reliable, scalable web and hybrid mobile applications. Strong expertise in backend systems (C#, ASP.NET Core, Web API), frontend frameworks (Angular, TypeScript), hybrid mobile (Ionic, Capacitor), cloud-native services (Azure, Azure Functions), and data platforms (EF Core, SQL Server). Proven in architecture, performance tuning, test-driven development, CI/CD pipelines, and team mentoring.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Skills & Keywords</div>
+          <div class="skill-badges" id="skills">
+            <span class="badge">C# / .NET</span>
+            <span class="badge">ASP.NET Core</span>
+            <span class="badge">Web API / REST</span>
+            <span class="badge">Entity Framework</span>
+            <span class="badge">Angular</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">Ionic / Capacitor</span>
+            <span class="badge">Azure</span>
+            <span class="badge">SQL Server</span>
+            <span class="badge">CI/CD</span>
+            <span class="badge">Microservices</span>
+            <span class="badge">Testing / TDD</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Education</div>
+          <p>B.E. (Information Technology) — Trinity College of Engineering and Research, Pune</p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="card-wide card">
+          <h2 id="professional-development">Professional Development</h2>
+          <div class="muted">Career roles and highlights</div>
+
+          <div class="job">
+            <h3>Senior Software Engineer — Rewise Analytics Pvt. Ltd.</h3>
+            <div class="meta">Aug 2018 — Present</div>
+            <div class="desc">Lead development of hybrid applications and backend services. Focus areas: cross-platform integrations, performance optimization, Azure deployments, and mentoring engineers.</div>
           </div>
 
-        </header>
-        <section style=" height: 600px;background-color: red;" class="main" id="about">
-          About Content
-        </section>
-        <section style=" height: 600px;background-color: yellow;" class="main" id="contact">
-          contact Content
-        </section>
-      <!-- </main> -->
-      <script src="index.js"></script>
+          <div class="job">
+            <h3>Software Engineer — Silicus Technologies Pvt. Ltd.</h3>
+            <div class="meta">Jan 2016 — Aug 2018</div>
+            <div class="desc">Developed SaaS features for club management and payment integrations; worked on presentation/business layers and third-party integrations.</div>
+          </div>
+
+          <div class="job">
+            <h3>Software Engineer — Hexaware Technologies</h3>
+            <div class="meta">May 2015 — Dec 2015</div>
+            <div class="desc">Feature development and maintenance for an issue tracking product built on ASP.NET MVC.</div>
+          </div>
+
+          <div class="job">
+            <h3>Software Engineer — QuicSolv Technologies</h3>
+            <div class="meta">Feb 2014 — May 2015</div>
+            <div class="desc">Worked on Rx billing system ePrimeRx for US pharmacies; implemented presentation & business layers using ASP.NET MVC and SQL Server.</div>
+          </div>
+        </div>
+
+        <div class="card-wide card" id="projects">
+          <h2>Selected Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <h4>Mimeo Digital</h4>
+              <p>Content management and allocation tool for web & mobile. Tech: Angular, Ionic, Capacitor, Azure Functions.</p>
+            </div>
+            <div class="project">
+              <h4>Mimeo Photos</h4>
+              <p>macOS Photos extension for photobooks & calendars. Tech: ASP.NET Core, Azure Service Bus.</p>
+            </div>
+            <div class="project">
+              <h4>I4 Jonas Fitness</h4>
+              <p>SAAS club management product. Tech: ASP.NET MVC, Entity Framework, Angular.</p>
+            </div>
+            <div class="project">
+              <h4>IonPay</h4>
+              <p>Employee loan repayment integration with ACH. Tech: ASP.NET MVC, Kendo UI, SQL Server.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wide card">
+          <h2>Tools & Workflows</h2>
+          <p class="muted">VS Code, Visual Studio, Git, Azure, Firebase, CI/CD pipelines, Agile Scrum.</p>
+        </div>
+
+        <footer class="site-footer">
+          <div>Portfolio generated from uploaded resume. Content based on the resume you provided.</div>
+          <div>© Pritesh P. Bonde</div>
+        </footer>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
